@@ -19,6 +19,8 @@ import static org.slf4j.LoggerFactory.getLogger;
 public class TestImplementation {
     static final Logger log = getLogger(lookup().lookupClass());
     private WebDriver driver;
+    private String urlHubLocal = "http://localhost:4444/wd/hub";
+    private String urlHubJenkins = "http://selenium-hub:4444/wd/hub";
 
     @BeforeClass
     public static void setupWebdriverChromeDriver() {
@@ -28,7 +30,7 @@ public class TestImplementation {
     @Before
     public void setup() throws MalformedURLException {
         ChromeOptions chromeOptions = new ChromeOptions();
-        driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),chromeOptions);
+        driver = new RemoteWebDriver(new URL(urlHubJenkins),chromeOptions);
         //driver = new ChromeDriver();
     }
 

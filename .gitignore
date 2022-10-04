@@ -1,5 +1,5 @@
 HELP.md
-.gradle
+### .gradle ### for jenkins not download
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
