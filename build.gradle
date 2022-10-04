@@ -14,6 +14,7 @@ ext {
 
     seleniumVersion = "4.5.0"
     junit4Version = "4.13.2"
+    junitVintageEngineVersion = "5.9.0"
     assertjVersion = "3.23.1"
     wdmVersion = "5.3.0"
 }
@@ -27,10 +28,11 @@ dependencies {
     testImplementation("org.assertj:assertj-core:${assertjVersion}")
     testImplementation("io.github.bonigarcia:webdrivermanager:${wdmVersion}")
 
-    testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.8.2")
+    testRuntimeOnly("org.junit.vintage:junit-vintage-engine:${junitVintageEngineVersion}")
 
 }
 
 test {
+    systemProperty 'env', project.hasProperty('env') ? project.env : 'local'
     useJUnitPlatform()
 }

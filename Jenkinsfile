@@ -6,6 +6,6 @@ node {
 	    sh "./gradlew clean build -x test"
 	}
   stage ('Test'){
-	    sh "./gradlew test"
+	    sh "./gradlew test -Penv=jenkins"
 	}
 }

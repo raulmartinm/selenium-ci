@@ -29,8 +29,10 @@ public class TestImplementation {
 
     @Before
     public void setup() throws MalformedURLException {
+        String env = System.getProperty("env", "local");
+        System.out.println(String.format(" >>>>>>>>>>>>> setup %s",env));
         ChromeOptions chromeOptions = new ChromeOptions();
-        driver = new RemoteWebDriver(new URL(urlHubJenkins),chromeOptions);
+        driver = new RemoteWebDriver(new URL(env.equals("jenkins") ? urlHubJenkins : urlHubLocal),chromeOptions);
         //driver = new ChromeDriver();
     }
 
